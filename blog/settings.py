@@ -27,7 +27,7 @@ SECRET_KEY = 'z0^zd5pore86nt$r(2&z=(vp7)q-np6d0t-#(_wu)$2_pm+o&)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ntaev.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
