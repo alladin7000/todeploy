@@ -1,0 +1,88 @@
+{%load static%}
+{% load cache %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% cache 60 body %}
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+
+   {% include 'mysite/inc_header.html' %}
+  <!-- ========== ABOUT SECTION ========== -->
+	<section id="about" name="about"></section>
+	<div id="f">
+		<div class="container">
+			<div class="row">
+				<h3>ABOUT ME</h3>
+				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+
+				<!-- INTRO INFORMATIO-->
+				<div class="col-lg-6 col-lg-offset-3">
+					<p>A full time theme crafter based in Madrid, Spain. I love designing beautiful, clean and user-friendly interfaces for websites.</p>
+					<p>My passion is turning good ideas and products into eye-catching sites.</p>
+					<p>Sometimes I blog about design and web trends. Also I share links and my thoughts on <a href="http://twitter.com/BlackTie_co">Twitter</a>. Need a free handsome bootstrap theme? <a href="http://blacktie.co">Done!</a></p>
+					<p>I'm available for freelance jobs. Contact me now.</p>
+					<p><button type="button" class="btn btn-warning">I HAVE A FREELANCE JOB</button></p>
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /f -->
+
+
+	<!-- ========== CAROUSEL SECTION ========== -->
+	<section id="portfolio" name="portfolio"></section>
+	<div id="f">
+		<div class="container">
+			<div class="row centered">
+				<h3>SOME PROJECTS</h3>
+				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+
+				<div class="col-lg-6 col-lg-offset-3">
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active centered">
+								<img class="img-responsive" src="static/img/c1.png" alt="">
+							</div>
+							<div class="item centered">
+								<img class="img-responsive" src="static/img/c2.png" alt="">
+							</div>
+							<div class="item centered">
+								<img class="img-responsive" src="static/img/c3.png" alt="">
+							</div>
+						</div>
+						<br>
+						<br>
+						<ol class="carousel-indicators">
+						    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+					</div>
+				</div><!-- col-lg-8 -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</div>	<!-- f -->
+
+	<!-- ========== CONTACT SECTION ========== -->
+
+  {%include 'mysite/inc_footer.html'%}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="static/js/classie.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/smoothscroll.js"></script>
+	<script src="static/js/main.js"></script>
+	<script src="static/js/button.js"></script>
+  <a id="gotop" href="#" alt="наверх" title="Вернуться наверх"></a>
+  <script>
+        (function(w,d,u){
+                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
+                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+        })(window,document,'https://cdn.bitrix24.ua/b12480531/crm/site_button/loader_4_b2kqfv.js');
+</script>
+ {% endcache %}
+</body>
+</html>
+
