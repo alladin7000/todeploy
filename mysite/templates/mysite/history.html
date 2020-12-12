@@ -15,6 +15,7 @@
     <link href="static/css/bootstrap.css" rel="stylesheet">
      <link href="static/css/history.css" rel="stylesheet">
     <link href="static/css/main.css" rel="stylesheet">
+
 	<link rel="stylesheet" href="static/css/font-awesome.min.css">
      <script src="static/js/jquery.min.js"></script>
      <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
@@ -62,6 +63,7 @@
                 {% endfor %}
 		</div>
 	</div>
+
 	<script src="static/js/classie.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/smoothscroll.js"></script>
@@ -74,7 +76,8 @@
                 var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
         })(window,document,'https://cdn.bitrix24.ua/b12480531/crm/site_button/loader_4_b2kqfv.js');
 </script>
-
+  {% include 'mysite/inc_pagination.html' %}
 </body>
+
 </html>
 
