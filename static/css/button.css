@@ -1,5 +1,5 @@
 #gotop{
-background:url(https://icon-icons.com/icons2/2550/PNG/64/arrow_circle_up_icon_152705.png) 50% 50% no-repeat;
+background:url(../img/scrollbutton.png) 50% 50% no-repeat;
 z-index: 9999;
 opacity: 0.7;
 width:50px;
@@ -14,4 +14,14 @@ border-radius: 50%;
 }
 #gotop:hover{
 opacity: 1;
+}
+
+}
+ .modal-backdrop{opacity: 0,5 !important;}
+
+ .wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

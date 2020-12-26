@@ -1,20 +1,8 @@
-/*!
- * Chart.js
- * http://chartjs.org/
- *
- * Copyright 2013 Nick Downie
- * Released under the MIT license
- * https://github.com/nnnick/Chart.js/blob/master/LICENSE.md
- */
 
-//Define the global Chart Variable as a class.
 window.Chart = function(context){
 
 	var chart = this;
-	
-	
-	//Easing functions adapted from Robert Penner's easing equations
-	//http://www.robertpenner.com/easing/
+
 	
 	var animationOptions = {
 		linear : function (t){
@@ -147,12 +135,12 @@ window.Chart = function(context){
 		}
 	};
 
-	//Variables global to the chart
+
 	var width = context.canvas.width;
 	var height = context.canvas.height;
 
 
-	//High pixel density displays - multiply the size of the canvas height/width by the device pixel ratio, then scale.
+
 	if (window.devicePixelRatio) {
 		context.canvas.style.width = width + "px";
 		context.canvas.style.height = height + "px";
@@ -694,8 +682,7 @@ window.Chart = function(context){
 
 	var Pie = function(data,config,ctx){
 		var segmentTotal = 0;
-		
-		//In case we have a canvas that is not a square. Minus 5 pixels as padding round the edge.
+
 		var pieRadius = Min([height/2,width/2]) - 5;
 		
 		for (var i=0; i<data.length; i++){
@@ -739,7 +726,7 @@ window.Chart = function(context){
 	var Doughnut = function(data,config,ctx){
 		var segmentTotal = 0;
 		
-		//In case we have a canvas that is not a square. Minus 5 pixels as padding round the edge.
+
 		var doughnutRadius = Min([height/2,width/2]) - 5;
 		
 		var cutoutRadius = doughnutRadius * (config.percentageInnerCutout/100);
@@ -944,7 +931,7 @@ window.Chart = function(context){
 					var measuredText = ctx.measureText(calculatedScale.labels[i]).width;
 					longestText = (measuredText > longestText)? measuredText : longestText;
 				}
-				//Add a little extra padding from the y axis
+
 				longestText +=10;
 			}
 			xAxisLength = width - longestText - widestXLabel;
@@ -956,12 +943,12 @@ window.Chart = function(context){
 		function calculateDrawingSizes(){
 			maxSize = height;
 
-			//Need to check the X axis first - measure the length of each text metric, and figure out if we need to rotate by 45 degrees.
+
 			ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 			widestXLabel = 1;
 			for (var i=0; i<data.labels.length; i++){
 				var textLength = ctx.measureText(data.labels[i]).width;
-				//If the text length is longer - make that equal to longest text!
+
 				widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
 			}
 			if (width/data.labels.length < widestXLabel){
@@ -978,18 +965,18 @@ window.Chart = function(context){
 				maxSize -= config.scaleFontSize;
 			}
 			
-			//Add a little padding between the x line and the text
+
 			maxSize -= 5;
 			
 			
 			labelHeight = config.scaleFontSize;
 			
 			maxSize -= labelHeight;
-			//Set 5 pixels greater than the font size to allow for a little padding from the X axis.
+
 			
 			scaleHeight = maxSize;
 			
-			//Then get the area above we can safely draw on.
+
 			
 		}		
 		function getValueBounds() {
@@ -1067,7 +1054,6 @@ window.Chart = function(context){
 			
 		}
 		function drawScale(){
-			//X axis line
 			ctx.lineWidth = config.scaleLineWidth;
 			ctx.strokeStyle = config.scaleLineColor;
 			ctx.beginPath();
@@ -1100,14 +1086,13 @@ window.Chart = function(context){
 				ctx.beginPath();
 				ctx.moveTo(yAxisPosX + (i+1) * valueHop, xAxisPosY+3);
 				
-				//Check i isnt 0, so we dont go over the Y axis twice.
+
 					ctx.lineWidth = config.scaleGridLineWidth;
 					ctx.strokeStyle = config.scaleGridLineColor;					
 					ctx.lineTo(yAxisPosX + (i+1) * valueHop, 5);
 				ctx.stroke();
 			}
-			
-			//Y axis
+
 			ctx.lineWidth = config.scaleLineWidth;
 			ctx.strokeStyle = config.scaleLineColor;
 			ctx.beginPath();
@@ -1139,14 +1124,14 @@ window.Chart = function(context){
 		}
 		function calculateXAxisSize(){
 			var longestText = 1;
-			//if we are showing the labels
+
 			if (config.scaleShowLabels){
 				ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 				for (var i=0; i<calculatedScale.labels.length; i++){
 					var measuredText = ctx.measureText(calculatedScale.labels[i]).width;
 					longestText = (measuredText > longestText)? measuredText : longestText;
 				}
-				//Add a little extra padding from the y axis
+
 				longestText +=10;
 			}
 			xAxisLength = width - longestText - widestXLabel;
@@ -1160,12 +1145,11 @@ window.Chart = function(context){
 		function calculateDrawingSizes(){
 			maxSize = height;
 
-			//Need to check the X axis first - measure the length of each text metric, and figure out if we need to rotate by 45 degrees.
+
 			ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 			widestXLabel = 1;
 			for (var i=0; i<data.labels.length; i++){
 				var textLength = ctx.measureText(data.labels[i]).width;
-				//If the text length is longer - make that equal to longest text!
 				widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
 			}
 			if (width/data.labels.length < widestXLabel){
@@ -1182,18 +1166,17 @@ window.Chart = function(context){
 				maxSize -= config.scaleFontSize;
 			}
 			
-			//Add a little padding between the x line and the text
+
 			maxSize -= 5;
 			
 			
 			labelHeight = config.scaleFontSize;
 			
 			maxSize -= labelHeight;
-			//Set 5 pixels greater than the font size to allow for a little padding from the X axis.
-			
+
 			scaleHeight = maxSize;
 			
-			//Then get the area above we can safely draw on.
+
 			
 		}		
 		function getValueBounds() {
@@ -1250,10 +1233,9 @@ window.Chart = function(context){
 			}				
 		}
 		function animLoop(){
-			//We need to check if the animation is incomplete (less than 1), or complete (1).
+
 				percentAnimComplete += animFrameAmount;
-				animateFrame();	
-				//Stop the loop continuing forever
+				animateFrame();
 				if (percentAnimComplete <= 1){
 					requestAnimFrame(animLoop);
 				}
@@ -1265,10 +1247,10 @@ window.Chart = function(context){
 		
 	}
 
-	//Declare global functions to be called within this namespace here.
+
 	
 	
-	// shim layer with setTimeout fallback
+
 	var requestAnimFrame = (function(){
 		return window.requestAnimationFrame ||
 			window.webkitRequestAnimationFrame ||
@@ -1296,8 +1278,7 @@ window.Chart = function(context){
             stepValue = Math.pow(10, rangeOrderOfMagnitude);
             
 	        numberOfSteps = Math.round(graphRange / stepValue);
-	        
-	        //Compare number of steps to the max and min for that size graph, and add in half steps if need be.	        
+
 	        while(numberOfSteps < minSteps || numberOfSteps > maxSteps) {
 	        	if (numberOfSteps < minSteps){
 			        stepValue /= 2;
@@ -1327,25 +1308,25 @@ window.Chart = function(context){
 
 	}
 
-    //Populate an array of all the labels by interpolating the string.
+
     function populateLabels(labelTemplateString, labels, numberOfSteps, graphMin, stepValue) {
         if (labelTemplateString) {
-            //Fix floating point errors by setting to fixed the on the same decimal as the stepValue.
+
             for (var i = 1; i < numberOfSteps + 1; i++) {
                 labels.push(tmpl(labelTemplateString, {value: (graphMin + (stepValue * i)).toFixed(getDecimalPlaces(stepValue))}));
             }
         }
     }
 	
-	//Max value from array
+
 	function Max( array ){
 		return Math.max.apply( Math, array );
 	};
-	//Min value from array
+
 	function Min( array ){
 		return Math.min.apply( Math, array );
 	};
-	//Default if undefined
+
 	function Default(userDeclared,valueIfFalse){
 		if(!userDeclared){
 			return valueIfFalse;

@@ -10,7 +10,7 @@ class Category (models.Model):
         return self.title
 
     def get_absolute_url (self):
-        return reverse ('category', kwargs ={"slug":self.slug})
+        return reverse ('category', kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = 'Category'
@@ -27,13 +27,29 @@ class Post (models.Model):
     photo = models.ImageField (upload_to='photos/%Y/%m/%d', blank=True)
     views = models.IntegerField (default=0, verbose_name='number of views')
     category = models.ForeignKey (Category, on_delete=models.PROTECT, related_name='posts')
+    email = models.EmailField (blank=True, )
+    phone = models.CharField (max_length=50, blank=True)
 
     def __str__ (self):
         return self.title
 
     def get_absolute_url (self):
-        return reverse ('category', kwargs={"slug": self.slug})
+        return reverse ('category', kwargs={"pk": self.pk})
 
     class Meta:
         ordering = ['-created_at']
 
+
+class Story (models.Model):
+    title = models.CharField (max_length=500)
+    author = models.CharField (max_length=500)
+    content = models.TextField (blank=True)
+    created_at = models.DateTimeField (auto_now_add=True, verbose_name='Date')
+    category = models.ForeignKey (Category, on_delete=models.PROTECT, related_name='news')
+
+
+    def __str__ (self):
+        return self.title
+
+    class Meta:
+        ordering = ['-created_at']

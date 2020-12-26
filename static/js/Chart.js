@@ -1,20 +1,8 @@
-/*!
- * Chart.js
- * http://chartjs.org/
- *
- * Copyright 2013 Nick Downie
- * Released under the MIT license
- * https://github.com/nnnick/Chart.js/blob/master/LICENSE.md
- */
 
-//Define the global Chart Variable as a class.
 window.Chart = function(context){
 
 	var chart = this;
-	
-	
-	//Easing functions adapted from Robert Penner's easing equations
-	//http://www.robertpenner.com/easing/
+
 	
 	var animationOptions = {
 		linear : function (t){
@@ -147,12 +135,12 @@ window.Chart = function(context){
 		}
 	};
 
-	//Variables global to the chart
+
 	var width = context.canvas.width;
 	var height = context.canvas.height;
 
 
-	//High pixel density displays - multiply the size of the canvas height/width by the device pixel ratio, then scale.
+
 	if (window.devicePixelRatio) {
 		context.canvas.style.width = width + "px";
 		context.canvas.style.height = height + "px";

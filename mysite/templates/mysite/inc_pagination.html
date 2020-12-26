@@ -1,4 +1,4 @@
-<link href="static/css/paginate.css" rel="stylesheet">
+<link href="/static/css/paginate.css" rel="stylesheet">
   {% if page_obj.has_other_pages %}
    <div class="dark-pagination">
      <ul>
@@ -9,7 +9,7 @@
             {% if page_obj.number == p %}
          <li><a href="?page={{ p }}" title="Страница 1">{{ p }}</a></li>
           {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
-         <li><a href="?page={{ p }}" title="Страница 2">{{ p }} </a></li>
+         <li><a href="?{{ q }}page={{ p }}" title="Страница 2">{{ p }} </a></li>
          {% endif %}
          {% endfor %}
           {% if page_obj.has_next %}
